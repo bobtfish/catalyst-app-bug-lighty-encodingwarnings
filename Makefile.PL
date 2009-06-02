@@ -6,6 +6,8 @@ use inc::Module::Install;
 name 'MyApp';
 all_from 'lib/MyApp.pm';
 
+requires 'Catalyst::Plugin::Authentication';
+requires 'Catalyst::Plugin::Unicode';
 requires 'Catalyst::Runtime' => '5.80004';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Static::Simple';
