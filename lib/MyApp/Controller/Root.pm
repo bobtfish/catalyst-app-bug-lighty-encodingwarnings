@@ -17,6 +17,9 @@ sub index :Path :Args(0) {
         $c->stash->{template} = 'logged_in.tt';
     }
     else {
+        if (!$c->req->param('username') {
+            $c->stash->{template} = 'login.tt';
+        }
         if ($c->authenticate({username => $c->req->param('username'), password => $c->req->param('password') }) ) {
             $c->stash->{template} = 'logged_in.tt';
         }

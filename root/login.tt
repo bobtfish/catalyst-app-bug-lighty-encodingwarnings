@@ -1,0 +1,5 @@
+<form>
+   Username <input name="username" type="text" value="bob" />
+   Password <input name="password" type="text" value="s00p3r" />
+</form>
+
