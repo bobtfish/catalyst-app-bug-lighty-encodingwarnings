@@ -13,12 +13,16 @@ __PACKAGE__->config->{namespace} = '';
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-    # Hello World
-    if ($c->authenticate({username => $c->req->param('username'), password => $c->req->param('password') }) ) {
-        $c->response->body( 'ok' );
+    if ($c->user) {
+        $c->stash->{template} = 'logged_in.tt';
     }
     else {
-        $c->res->body('fail');
+        if ($c->authenticate({username => $c->req->param('username'), password => $c->req->param('password') }) ) {
+            $c->stash->{template} = 'logged_in.tt';
+        }
+        else {
+            $c->stash->{template} = 'fail.tt';
+        }
     }
 }
 
