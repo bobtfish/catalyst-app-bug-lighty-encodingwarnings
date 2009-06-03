@@ -31,7 +31,29 @@ our $VERSION = '0.01';
 # with an external configuration file acting as an override for
 # local deployment.
 
-__PACKAGE__->config( name => 'MyApp' );
+__PACKAGE__->config(
+    name => 'MyApp',
+    'Plugin::Authentication' => {
+        default => {
+                        credential => {
+                            class => 'Password',
+                            password_field => 'password',
+                            password_type => 'clear'
+                        },
+                        store => {
+                            class => 'Minimal',
+                                users => {
+                                    bob => {
+                                        password => "s00p3r",
+                                    },
+                                    william => {
+                                        password => "s3cr3t",
+                                    },
+                                },
+                            },
+                        },
+    },
+);
 
 # Start the application
 __PACKAGE__->setup();

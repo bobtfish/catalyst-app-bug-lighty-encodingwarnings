@@ -10,27 +10,16 @@ use parent 'Catalyst::Controller';
 #
 __PACKAGE__->config->{namespace} = '';
 
-=head1 NAME
-
-MyApp::Controller::Root - Root Controller for MyApp
-
-=head1 DESCRIPTION
-
-[enter your description here]
-
-=head1 METHODS
-
-=cut
-
-=head2 index
-
-=cut
-
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
     # Hello World
-    $c->response->body( 'foo' );
+    if ($c->authenticate({username => $c->req->param('username'), password => $c->req->param('password') }) ) {
+        $c->response->body( 'ok' );
+    }
+    else {
+        $c->res->body('fail');
+    }
 }
 
 sub default :Path {
