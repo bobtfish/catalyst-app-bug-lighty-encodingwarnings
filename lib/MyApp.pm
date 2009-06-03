@@ -19,6 +19,9 @@ use Catalyst qw/-Debug
                 Static::Simple
                 Authentication
                 Unicode
+                Session
+                Session::Store::File
+                Session::State::Cookie
 /;
 our $VERSION = '0.01';
 

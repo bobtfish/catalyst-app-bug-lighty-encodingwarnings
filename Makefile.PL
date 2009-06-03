@@ -6,6 +6,9 @@ use inc::Module::Install;
 name 'MyApp';
 all_from 'lib/MyApp.pm';
 
+requires 'Catalyst::Plugin::Session';
+requires 'Catalyst::Plugin::Session::Store::File';
+requires 'Catalyst::Plugin::Session::State::Cookie';
 requires 'Catalyst::View::TT';
 requires 'Catalyst::Plugin::Authentication';
 requires 'Catalyst::Plugin::Unicode';
