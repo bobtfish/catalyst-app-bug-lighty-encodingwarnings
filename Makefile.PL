@@ -6,6 +6,7 @@ use inc::Module::Install;
 name 'MyApp';
 all_from 'lib/MyApp.pm';
 
+requires 'encoding::warnings';
 requires 'Catalyst::Plugin::Session';
 requires 'Catalyst::Plugin::Session::Store::File';
 requires 'Catalyst::Plugin::Session::State::Cookie';

@@ -23,6 +23,8 @@ use Catalyst qw/-Debug
                 Session::Store::File
                 Session::State::Cookie
 /;
+use encoding::warnings;
+
 our $VERSION = '0.01';
 
 # Configure the application.
